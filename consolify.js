@@ -18,21 +18,21 @@ let Consolify = {
             if (oLog){
                 oLog.call(console, ...arguments);
             }
-            cb(arguments, "info");
+            cb("info", arguments);
         };
 
         console.warn = function(){
             if (oWarn){
                 oWarn.call(console, ...arguments);
             }
-            cb(arguments, "warn");
+            cb("warn", arguments);
         };
 
         console.error = function(){
             if (oErr){
                 oErr.call(console, ...arguments);
             }
-            cb(arguments, "error");
+            cb("error", arguments);
         };
     }
 }
