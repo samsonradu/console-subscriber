@@ -4,7 +4,8 @@
  
  ## Usage
  <pre>
- Consolify.init(function(args, category){
+ Consolify.init(function(category, args){
+     // you have the category (info/warn/error) and the arguments of the console call
      document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args));
  });
  </pre>
