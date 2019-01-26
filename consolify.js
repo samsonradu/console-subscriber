@@ -14,29 +14,25 @@ let Consolify = {
         let oWarn = console.warn;
         let oErr = console.error;
 
-        let write = function (args, category, cb){ 
-            cb(args, category);
-        } 
-
         console.log = console.info = function(){
             if (oLog){
                 oLog.call(console, ...arguments);
             }
-            write(arguments, "info", cb);
+            cb(arguments, "info");
         };
 
         console.warn = function(){
             if (oWarn){
                 oWarn.call(console, ...arguments);
             }
-            write(arguments, "warn", cb);
+            cb(arguments, "warn");
         };
 
         console.error = function(){
             if (oErr){
                 oErr.call(console, ...arguments);
             }
-            write(arguments, "error", cb);
+            cb(arguments, "error");
         };
     }
 }
