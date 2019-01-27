@@ -7,7 +7,7 @@ A drop-in tool to capture console output. Useful for debugging scripts on a devi
 <pre>
 /**
  * Subscribe to console output
- * NOTE: that calling console functions inside a callback would lead to an infinite recursion
+ * WARNING: calling console functions inside a callback would lead to an infinite recursion
  *
  * @param string $category info|warn|error
  * @param array $args
