@@ -14,16 +14,16 @@ A drop-in tool to subscribe to the console output. Useful for debugging scripts 
  *
  */
 let callback = function(category, args){
-    //write to a DOM element
+    // write to a DOM element
     document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args) + "\n"); 
 };
 
-Consolify.bind(callback);
+Consolify.init(callback);
 
-//skip console output at all
+// or skip console output at all
 let preventLogging = true;
 
-Consolify.bind(callback, preventLogging);
+Consolify.init(callback, preventLogging);
 </pre>
 
 ## License
