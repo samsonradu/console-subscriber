@@ -1,18 +1,20 @@
 # Consolify
  
- A drop-in tool to capture console output. Useful for debugging scripts on a device where the console is not accessible like mobile device browsers. 
+A drop-in tool to capture console output. Useful for debugging scripts on a device where the console is not accessible like mobile device browsers. 
  
- ## Usage
+## Usage
 
- <pre>
- Consolify.init(function(category, args){
- 
-     // pipe console output to a DOM element
-     // you have category (info/warn/error) and the arguments of the console call
-     document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args) + "\n");
- 
- });
- </pre>
+<pre>
+/**
+ * Capture console output
+ */
+Consolify.init(function(category, args){
+
+    // you have category (info/warn/error) and the arguments of the console call
+    document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args) + "\n");
+
+});
+</pre>
 
 ## License
 MIT
