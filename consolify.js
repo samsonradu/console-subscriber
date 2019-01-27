@@ -17,32 +17,32 @@
             const CATEGORY_WARN = "warn";
             const CATEGORY_ERROR = "error";
 
-            let oLog = console.log;
-            let oWarn = console.warn;
-            let oErr = console.error;
+            let _log = console.log;
+            let _warn = console.warn;
+            let _error = console.error;
 
             console.log = console.info = function(){
-                if (oLog){
+                if (_log){
                     if (!preventLogging){
-                        oLog.call(console, ...arguments);
+                        _log.call(console, ...arguments);
                     }
                     cb(CATEGORY_INFO, arguments);
                 }
             };
 
             console.warn = function(){
-                if (oWarn){
+                if (_warn){
                     if (!preventLogging){
-                        oWarn.call(console, ...arguments);
+                        _warn.call(console, ...arguments);
                     }
                     cb(CATEGORY_WARN, arguments);
                 }
             };
 
             console.error = function(){
-                if (oErr){
+                if (_error){
                     if (!preventLogging){
-                        oErr.call(console, ...arguments);
+                        _error.call(console, ...arguments);
                     }
                     cb(CATEGORY_ERROR, arguments);
                 }
