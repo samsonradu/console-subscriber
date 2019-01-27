@@ -7,7 +7,7 @@
     var Consolify = {
         init: function(cb){
             if (typeof cb !== 'function'){
-                console.error("You must pass a callback function");
+                console.error("You must pass a valid callback function.");
                 return false;
             }
 
@@ -46,8 +46,10 @@
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
         module.exports = Consolify;
     }
-    else {
+    else if (typeof window === 'object'){
         window.Consolify = Consolify;
     }
-
+    else {
+        console.error("Failed to export module.");
+    }
 })();
