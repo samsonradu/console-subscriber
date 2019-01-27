@@ -3,7 +3,7 @@
  *
  * @author Samson Radu
  */ 
-let Consolify = {
+window.Consolify = {
     init: function(cb){
         if (typeof cb !== 'function'){
             console.error("You must pass a callback function");
