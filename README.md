@@ -1,13 +1,13 @@
 # Consolify
  
-A drop-in tool to capture console output. Useful for debugging scripts on a device where the console is not accessible like mobile device browsers. 
+A drop-in tool to subscribe to the console output. Useful for debugging scripts on a device where the console is not accessible like mobile device browsers. 
  
 ## Usage
 
 <pre>
 /**
- * Subscribe to console output
- * WARNING: calling console functions inside a callback would lead to an infinite recursion
+ * Function to call on console output
+ * WARNING: calling console.log inside the callback would lead to an infinite recursion
  *
  * @param string $category info|warn|error
  * @param array $args
