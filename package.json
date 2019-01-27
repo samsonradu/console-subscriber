@@ -1,0 +1,24 @@
+{
+  "name": "consolify",
+  "version": "1.0.0",
+  "description": "Capture console output for analysis",
+  "main": "consolify.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samsonradu/Consolify.git"
+  },
+  "keywords": [
+    "console",
+    "capture",
+    "logging"
+  ],
+  "author": "Samson Radu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samsonradu/Consolify/issues"
+  },
+  "homepage": "https://github.com/samsonradu/Consolify#readme"
+}
