@@ -5,8 +5,10 @@
  ## Usage
  <pre>
  Consolify.init(function(category, args){
-     // you get the category (info/warn/error) and the arguments of the console call
-     document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args));
-     // now you see the output in a DOM element
+ 
+     // pipe console output to a DOM element
+     // you have category (info/warn/error) and the arguments of the console call
+     document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args)) + "<br>";
+ 
  });
  </pre>
