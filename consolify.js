@@ -4,8 +4,12 @@
  * @author Samson Radu
  */ 
 (function(){
+    var _log = console.log;
+    var _warn = console.warn;
+    var _error = console.error;
+
     var Consolify = {
-        init: function(cb, preventLogging){
+        bind: function(cb, preventLogging){
             if (typeof cb !== 'function'){
                 console.error("You must pass a valid callback function.");
                 return false;
@@ -16,10 +20,6 @@
             const CATEGORY_INFO = "info";
             const CATEGORY_WARN = "warn";
             const CATEGORY_ERROR = "error";
-
-            let _log = console.log;
-            let _warn = console.warn;
-            let _error = console.error;
 
             console.log = console.info = function(){
                 if (_log){
