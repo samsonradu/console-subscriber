@@ -5,11 +5,13 @@
  */ 
 (function(){
     var Consolify = {
-        init: function(cb){
+        init: function(cb, preventLogging){
             if (typeof cb !== 'function'){
                 console.error("You must pass a valid callback function.");
                 return false;
             }
+
+            preventLogging = Boolean(preventLogging); //force bool
 
             const CATEGORY_INFO = "info";
             const CATEGORY_WARN = "warn";
@@ -21,21 +23,27 @@
 
             console.log = console.info = function(){
                 if (oLog){
-                    oLog.call(console, ...arguments);
+                    if (!preventLogging){
+                        oLog.call(console, ...arguments);
+                    }
                     cb(CATEGORY_INFO, arguments);
                 }
             };
 
             console.warn = function(){
                 if (oWarn){
-                    oWarn.call(console, ...arguments);
+                    if (!preventLogging){
+                        oWarn.call(console, ...arguments);
+                    }
                     cb(CATEGORY_WARN, arguments);
                 }
             };
 
             console.error = function(){
                 if (oErr){
-                    oErr.call(console, ...arguments);
+                    if (!preventLogging){
+                        oErr.call(console, ...arguments);
+                    }
                     cb(CATEGORY_ERROR, arguments);
                 }
             };
