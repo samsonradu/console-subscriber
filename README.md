@@ -3,6 +3,7 @@
  A drop-in tool to capture console output. Useful for debugging scripts on a device where the console is not accessible like mobile device browsers. 
  
  ## Usage
+
  <pre>
  Consolify.init(function(category, args){
  
@@ -12,3 +13,6 @@
  
  });
  </pre>
+
+## License
+MIT
