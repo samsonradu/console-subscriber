@@ -8,7 +8,7 @@
  
      // pipe console output to a DOM element
      // you have category (info/warn/error) and the arguments of the console call
-     document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args) + "<br><script>alert('123');</script>");
+     document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args) + "\n");
  
  });
  </pre>
