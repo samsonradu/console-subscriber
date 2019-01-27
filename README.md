@@ -1,6 +1,6 @@
 # Consolify
  
- A drop-in tool to capture console output. Useful for debugging scripts on a device where the console is not accessible like mobile devices. 
+ A drop-in tool to capture console output. Useful for debugging scripts on a device where the console is not accessible like mobile device browsers. 
  
  ## Usage
  <pre>
