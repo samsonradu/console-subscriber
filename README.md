@@ -18,9 +18,7 @@ let callback = function(category, args){
     document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args) + "\n"); 
 };
 
-
 Consolify.bind(callback);
-
 
 //skip console output at all
 let preventLogging = true;
