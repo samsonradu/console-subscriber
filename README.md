@@ -12,7 +12,7 @@ A drop-in tool to capture console output. Useful for debugging scripts on a devi
  * @param array $args
  */
 let callback = function(category, args){
-    // you have category (info/warn/error) and the arguments of the console call
+    // You have category (info/warn/error) and the arguments of the console call. Dump them on the page.
     document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args) + "\n");
     
     //calling console.log here without the preventLogging flag set to true would cause a never-ending recursion
