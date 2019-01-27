@@ -14,8 +14,8 @@ A drop-in tool to capture console output. Useful for debugging scripts on a devi
  *
  */
 let callback = function(category, args){
-    // You have category (info/warn/error) and the arguments of the console call. Dump them on the page.
-    document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args) + "\n");    
+    // You have category (info/warn/error) and the arguments of the log call
+    document.getElementById('console').innerHTML += (category + ": " + JSON.stringify(args) + "\n"); //dump to page   
 };
 
 //skip console output at all
