@@ -3,36 +3,51 @@
  *
  * @author Samson Radu
  */ 
-window.Consolify = {
-    init: function(cb){
-        if (typeof cb !== 'function'){
-            console.error("You must pass a callback function");
-            return false;
-        }
+(function(){
+	var Consolify = {
+		init: function(cb){
+			if (typeof cb !== 'function'){
+				console.error("You must pass a callback function");
+				return false;
+			}
 
-        let oLog = console.log;
-        let oWarn = console.warn;
-        let oErr = console.error;
+			const CATEGORY_INFO = "info";
+			const CATEGORY_WARN = "warn";
+			const CATEGORY_ERROR = "error";
 
-        console.log = console.info = function(){
-            if (oLog){
-                oLog.call(console, ...arguments);
-            }
-            cb("info", arguments);
-        };
+			let oLog = console.log;
+			let oWarn = console.warn;
+			let oErr = console.error;
 
-        console.warn = function(){
-            if (oWarn){
-                oWarn.call(console, ...arguments);
-            }
-            cb("warn", arguments);
-        };
+			console.log = console.info = function(){
+				if (oLog){
+					oLog.call(console, ...arguments);
+					cb(CATEGORY_INFO, arguments);
+				}
+			};
 
-        console.error = function(){
-            if (oErr){
-                oErr.call(console, ...arguments);
-            }
-            cb("error", arguments);
-        };
-    }
-}
+			console.warn = function(){
+				if (oWarn){
+					oWarn.call(console, ...arguments);
+					cb(CATEGORY_WARN, arguments);
+				}
+			};
+
+			console.error = function(){
+				if (oErr){
+					oErr.call(console, ...arguments);
+					cb(CATEGORY_ERROR, arguments);
+				}
+			};
+		}
+	}
+
+	//export
+	if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+		module.exports = Consolify;
+	}
+	else {
+		window.Consolify = Consolify;
+	}
+
+})();
