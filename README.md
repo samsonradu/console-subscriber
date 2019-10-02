@@ -16,9 +16,15 @@ let ConsoleSubscriber = require('console-subscriber');
  *
  */
 let callback = (category, args) => {
-    // write to a DOM element
+
+    // In a browser env you could write to a DOM element
     let message = category + ": " + JSON.stringify(args) + "\n";
     document.getElementById('console').innerHTML += message; 
+
+    // In a Node env you could store the console output (errors)
+    if (category === "ERROR"){
+        redisClient.sadd("console:error", JSON.stringify(args));
+    }
 };
 
 // Bind callback fn. Multiple functions can be bound.

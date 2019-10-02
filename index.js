@@ -8,7 +8,7 @@
     var _warn = console.warn;
     var _error = console.error;
 
-    var Consolify = {
+    var ConsoleSubscriber = {
         unbind: function(){
             console.log = _log;
             console.warn = _warn;
@@ -57,10 +57,10 @@
 
     //export
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
-        module.exports = Consolify;
+        module.exports = ConsoleSubscriber;
     }
-    else if (typeof window === 'object'){
-        window.Consolify = Consolify;
+    else if (window && typeof window === 'object'){
+        window.ConsoleSubscriber = ConsoleSubscriber;
     }
     else {
         console.error("Failed to export module.");
