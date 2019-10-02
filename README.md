@@ -11,7 +11,7 @@ let cs = require('console-subscriber');
  * Function to be called on console output
  * WARNING: calling console.log inside the callback would lead to an infinite recursion
  *
- * @param string $category info|warn|error
+ * @param string $category info|warn|error|debug
  * @param array $args initial arguments of the call 
  */
 let callback = (category, args) => {
