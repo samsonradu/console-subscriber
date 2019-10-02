@@ -7,6 +7,7 @@
     var _log = console.log;
     var _warn = console.warn;
     var _error = console.error;
+    var _debug = console.debug;
 
     var ConsoleSubscriber = {
         unbind: function(){
@@ -25,6 +26,7 @@
             const CATEGORY_INFO = "info";
             const CATEGORY_WARN = "warn";
             const CATEGORY_ERROR = "error";
+            const CATEGORY_DEBUG = "debug";
 
             console.log = console.info = function(){
                 if (_log){
@@ -52,6 +54,16 @@
                     cb(CATEGORY_ERROR, arguments);
                 }
             };
+
+            console.debug = function(){
+                if (_debug){
+                    if (!preventLogging){
+                        _debug.call(console, ...arguments);
+                    }
+                    cb(CATEGORY_DEBUG, arguments);
+                }
+            };
+
         }
     }
 
