@@ -14,6 +14,7 @@
             console.log = _log;
             console.warn = _warn;
             console.error = _error;
+            console.debug = _debug;
         }, 
         bind: function(cb, preventLogging){
             if (typeof cb !== 'function'){
