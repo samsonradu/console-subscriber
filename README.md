@@ -1,10 +1,12 @@
-# Consolify
+# Console Subscriber
  
 A drop-in tool to subscribe to the console output. Useful for debugging JS scripts on a device where the console is not easily accessible like mobile device browsers. 
  
 ## Usage
 
 <pre>
+let ConsoleSubscriber = require('console-subscriber');
+
 /**
  * Function to be called on console output
  * WARNING: calling console.log inside the callback would lead to an infinite recursion
@@ -20,14 +22,14 @@ let callback = (category, args) => {
 };
 
 // Bind callback fn. Multiple functions can be bound.
-Consolify.bind(callback); 
+ConsoleSubscriber.bind(callback); 
 
 // Prevent writing to the console and let the callback function handle the args.
 let preventLogging = true;  
-Consolify.bind(callback, preventLogging); 
+ConsoleSubscriber.bind(callback, preventLogging); 
 
 // Restore defaults
-Consolify.unbind();    
+ConsoleSubscriber.unbind();    
 </pre>
 
 ## License
