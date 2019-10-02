@@ -2,10 +2,23 @@
  
 A drop-in tool to subscribe to the console output. Useful for debugging JS scripts on a device where the console is not easily accessible like mobile device browsers, or even in Node environments.
  
+## Installation
+
+### npm
+
+```sh
+npm install console-subscriber
+``` 
+
+### script
+<pre>
+<script src="node_modules/console-subscriber/index.js"></script>
+</pre>
+ 
 ## Usage
 
 <pre>
-let cs = require('console-subscriber');
+let cs = require('console-subscriber'); // window.ConsoleSubscriber object is available in browsers
 
 /**
  * Function to be called on console output
