@@ -21,7 +21,7 @@ let callback = (category, args) => {
     document.getElementById('console').innerHTML += message; 
 
     // In a Node env you could store the console output (errors)
-    if (category === "ERROR"){
+    if (category === "error"){
         redisClient.sadd("console:error", JSON.stringify(args));
     }
 };
