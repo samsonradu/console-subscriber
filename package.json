@@ -1,6 +1,6 @@
 {
   "name": "console-subscriber",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Subscribe to the browser's console output.",
   "main": "index.js",
   "scripts": {
