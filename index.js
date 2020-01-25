@@ -4,6 +4,12 @@
  * @author Samson Radu
  */ 
 (function(){
+
+    const CATEGORY_INFO = "info";
+    const CATEGORY_WARN = "warn";
+    const CATEGORY_ERROR = "error";
+    const CATEGORY_DEBUG = "debug";
+
     var _log = console.log;
     var _warn = console.warn;
     var _error = console.error;
@@ -23,11 +29,6 @@
             }
 
             preventLogging = Boolean(preventLogging); //force bool
-
-            const CATEGORY_INFO = "info";
-            const CATEGORY_WARN = "warn";
-            const CATEGORY_ERROR = "error";
-            const CATEGORY_DEBUG = "debug";
 
             console.log = console.info = function(){
                 if (_log){
@@ -64,7 +65,6 @@
                     cb(CATEGORY_DEBUG, arguments);
                 }
             };
-
         }
     }
 
