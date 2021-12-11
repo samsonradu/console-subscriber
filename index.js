@@ -31,39 +31,32 @@
             preventLogging = Boolean(preventLogging); //force bool
 
             console.log = console.info = function(){
-                if (_log){
-                    if (!preventLogging){
-                        _log.call(console, ...arguments);
-                    }
-                    cb(CATEGORY_INFO, arguments);
+                if (!preventLogging && typeof _log !== 'function'){
+                    _log.call(console, ...arguments);
                 }
+                cb(CATEGORY_INFO, arguments);
             };
 
             console.warn = function(){
-                if (_warn){
-                    if (!preventLogging){
-                        _warn.call(console, ...arguments);
-                    }
-                    cb(CATEGORY_WARN, arguments);
+                if (!preventLogging && typeof _warn !== 'function'){
+                    _warn.call(console, ...arguments);
                 }
+                cb(CATEGORY_WARN, arguments);
             };
 
             console.error = function(){
-                if (_error){
-                    if (!preventLogging){
-                        _error.call(console, ...arguments);
-                    }
-                    cb(CATEGORY_ERROR, arguments);
+                if (!preventLogging && typeof _error !== 'function'){
+                    _error.call(console, ...arguments);
                 }
+                cb(CATEGORY_ERROR, arguments);
+                
             };
 
             console.debug = function(){
-                if (_debug){
-                    if (!preventLogging){
-                        _debug.call(console, ...arguments);
-                    }
-                    cb(CATEGORY_DEBUG, arguments);
+                if (!preventLogging && typeof _debug !== 'function'){
+                    _debug.call(console, ...arguments);
                 }
+                cb(CATEGORY_DEBUG, arguments);
             };
         }
     }
