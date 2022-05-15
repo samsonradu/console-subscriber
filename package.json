@@ -1,26 +1,30 @@
 {
-  "name": "console-subscriber",
-  "version": "1.0.2",
-  "description": "Subscribe to the browser's console output.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/samsonradu/console-subscriber.git"
-  },
-  "keywords": [
-    "browser",
-    "nodejs",
-    "console",
-    "logging",
-    "console-log"
-  ],
-  "author": "Samson Radu",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/samsonradu/console-subscriber/issues"
-  },
-  "homepage": "https://github.com/samsonradu/console-subscriber#readme"
+    "name": "console-subscriber",
+    "version": "2.0",
+    "description": "Subscribe to the browser's console output.",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha tests/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/samsonradu/console-subscriber.git"
+    },
+    "keywords": [
+        "browser",
+        "nodejs",
+        "console",
+        "logging",
+        "console-log"
+    ],
+    "author": "Samson Radu",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/samsonradu/console-subscriber/issues"
+    },
+    "homepage": "https://github.com/samsonradu/console-subscriber#readme",
+    "devDependencies": {
+        "chai": "^4.3.6",
+        "mocha": "^10.0.0"
+    }
 }
