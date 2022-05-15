@@ -42,9 +42,8 @@ let callback = (category, args) => {
 // Bind callback fn. Multiple functions can be bound.
 cs.bind(callback); 
 
-// Prevent writing to the console and let the callback function handle the args.
-let preventLogging = true;  
-cs.bind(callback, preventLogging); 
+// Unbind a previously bound callback
+cs.unbind(callback);
 
 // Restore defaults
 cs.unbind();    
