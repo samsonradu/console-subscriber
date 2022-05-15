@@ -10,56 +10,52 @@
     const CATEGORY_ERROR = "error";
     const CATEGORY_DEBUG = "debug";
 
-    var _log = console.log;
-    var _warn = console.warn;
-    var _error = console.error;
-    var _debug = console.debug;
+    let _log = console.log;
+    let _warn = console.warn;
+    let _error = console.error;
+    let _debug = console.debug;
+
+    let _callbacks = []; // callbacks    
 
     var ConsoleSubscriber = {
-        unbind: function () {
-            console.log = _log;
-            console.warn = _warn;
-            console.error = _error;
-            console.debug = _debug;
+        unbind: function (cb) {
+            if (!cb) {
+                _callbacks = [];
+            }
+            else {
+                _callbacks = _callbacks.filter(_cb => _cb !== cb);
+            }
         },
-        bind: function (cb, preventLogging) {
+        bind: function (cb) {
             if (typeof cb !== 'function') {
                 console.error("You must pass a valid callback function.");
                 return false;
             }
 
-            preventLogging = Boolean(preventLogging); //force bool
-
-            console.log = console.info = function () {
-                if (!preventLogging && typeof _log === 'function') {
-                    _log.call(console, ...arguments);
-                }
-                cb(CATEGORY_INFO, arguments);
-            };
-
-            console.warn = function () {
-                if (!preventLogging && typeof _warn === 'function') {
-                    _warn.call(console, ...arguments);
-                }
-                cb(CATEGORY_WARN, arguments);
-            };
-
-            console.error = function () {
-                if (!preventLogging && typeof _error === 'function') {
-                    _error.call(console, ...arguments);
-                }
-                cb(CATEGORY_ERROR, arguments);
-
-            };
-
-            console.debug = function () {
-                if (!preventLogging && typeof _debug === 'function') {
-                    _debug.call(console, ...arguments);
-                }
-                cb(CATEGORY_DEBUG, arguments);
-            };
+            _callbacks.push(cb);
         }
     }
+
+    console.log = console.info = function () {
+        _log.call(console, ...arguments);
+        _callbacks.forEach(cb => cb(CATEGORY_INFO, arguments));
+    };
+
+    console.warn = function () {
+        _warn.call(console, ...arguments);
+        _callbacks.forEach(cb => cb(CATEGORY_WARN, arguments));
+    };
+
+    console.error = function () {
+        _error.call(console, ...arguments);
+        _callbacks.forEach(cb => cb(CATEGORY_ERROR, arguments));
+
+    };
+
+    console.debug = function () {
+        _debug.call(console, ...arguments);
+        _callbacks.forEach(cb => cb(CATEGORY_DEBUG, arguments));
+    };
 
     //export
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
